@@ -1,0 +1,85 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>trine</groupId>
+	<artifactId>ShortFuture</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>ShortFuture</name>
+	<url>http://maven.apache.org</url>
+
+	<!-- spring boot 父依赖 -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+	 	<version>2.0.3.RELEASE</version>
+	 	<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	 
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+		<!-- junit测试依赖 -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+            <version>3.8.1</version>
+      		<scope>test</scope>
+    	</dependency>
+    	<!-- log4j日志依赖 -->
+		<dependency>
+		    <groupId>log4j</groupId>
+		    <artifactId>log4j</artifactId>
+		    <version>1.2.17</version>
+		</dependency>
+    	<!-- spring boot 依赖 -->
+	  	<dependency>
+	       <groupId>org.springframework.boot</groupId>
+	       <artifactId>spring-boot-starter-web</artifactId>
+	    </dependency>
+	    <!-- 调试依赖，使改动不需要重启直接生效 -->
+	    <dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-devtools</artifactId>
+        	<optional>true</optional>
+    	</dependency>
+        <!-- 通过 Hibernate 使用 Spring Data JPA （Spring-data-jpa依赖于Hibernate） -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+ 		</dependency>
+       	<!-- mysql支持 -->
+ 	    <dependency>
+	        <groupId>mysql</groupId>
+	        <artifactId>mysql-connector-java</artifactId>
+	        <scope>runtime</scope>
+    	</dependency>
+    	<!-- shiro支持 -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.inject/javax.inject  依赖注入注解 -->
+		<dependency>
+		    <groupId>javax.inject</groupId>
+		    <artifactId>javax.inject</artifactId>
+		    <version>1</version>
+		</dependency>
+  	</dependencies>
+  	<build>
+	    <plugins>
+	        <!-- 要使生成的jar可运行，需要加入此插件 -->
+	        <plugin>
+	            <groupId>org.springframework.boot</groupId>
+	            <artifactId>spring-boot-maven-plugin</artifactId>
+	        </plugin>
+	    </plugins>
+	</build>
+</project>
