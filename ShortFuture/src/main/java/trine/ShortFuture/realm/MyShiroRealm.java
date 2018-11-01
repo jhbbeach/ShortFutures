@@ -18,6 +18,7 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.context.annotation.Lazy;
 
+import trine.ShortFuture.SpringUtil;
 import trine.ShortFuture.entity.User;
 import trine.ShortFuture.repository.UserRepository;
 import trine.ShortFuture.tools.MD5Utils;
@@ -66,9 +67,10 @@ public class MyShiroRealm extends AuthorizingRealm {
         User user = new User();
         user.setUserName(username);
         user.setPassword(password);
+//        SpringUtil.getApplicationContext().getBean(UserRepository.class).checkUser(username, password);
 
-        if(userRepository.checkUser(username, password) != null){
-        	return new SimpleAuthenticationInfo(user, password, getName());
+        if(SpringUtil.getApplicationContext().getBean(UserRepository.class).checkUser(username, password) != null){
+        	return new SimpleAuthenticationInfo(user, token.getPassword(), getName());
         }else{
         	throw new AuthenticationException("wrong password");
         }

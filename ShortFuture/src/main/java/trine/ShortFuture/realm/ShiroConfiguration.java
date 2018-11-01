@@ -20,32 +20,32 @@ Apache Shiro 核心通过 Filter 来实现，就好像SpringMvc 通过DispachSer
  * @author Angel(QQ:412887952)
  * @version v.0.1
  */
-@Configuration
+//@Configuration
 public class ShiroConfiguration {
-      
-    @Lazy
-    private SessionDAO sessionDao = null;
-    
-    @Bean(name = "securityManager")
-    public SecurityManager securityManager() throws InstantiationException, IllegalAccessException, ClassNotFoundException {
-
-        //根据配置文件拿到对应的realm
-        Realm frameworkRealm = new MyShiroRealm();
-
-        DefaultSecurityManager sm = new DefaultSecurityManager(frameworkRealm);
-        SecurityUtils.setSecurityManager(sm);
-
-        DefaultSessionManager ssm = new DefaultSessionManager();        
-        ssm.setSessionDAO(sessionDao);
-        sm.setSessionManager(ssm);
-        sm.setCacheManager(new MemoryConstrainedCacheManager());        
-        String configvalue = "local";
-        if ("local".equals(configvalue)) {
-            //设置session过期时间
-            long timeout = Long.valueOf("1800000");
-            ssm.setGlobalSessionTimeout(timeout);           
-        }
-        return sm;
-    }
+//      
+//    @Lazy
+//    private SessionDAO sessionDao = null;
+//    
+//    @Bean(name = "securityManager")
+//    public SecurityManager securityManager() throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+//
+//        //根据配置文件拿到对应的realm
+//        Realm frameworkRealm = new MyShiroRealm();
+//
+//        DefaultSecurityManager sm = new DefaultSecurityManager(frameworkRealm);
+//        SecurityUtils.setSecurityManager(sm);
+//
+//        DefaultSessionManager ssm = new DefaultSessionManager();        
+//        ssm.setSessionDAO(sessionDao);
+//        sm.setSessionManager(ssm);
+//        sm.setCacheManager(new MemoryConstrainedCacheManager());        
+//        String configvalue = "local";
+//        if ("local".equals(configvalue)) {
+//            //设置session过期时间
+//            long timeout = Long.valueOf("1800000");
+//            ssm.setGlobalSessionTimeout(timeout);           
+//        }
+//        return sm;
+//    }
 
 }
